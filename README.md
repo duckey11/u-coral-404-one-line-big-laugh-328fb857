@@ -8,7 +8,7 @@ Entry for the make.fun bounty "One Line, Big Laugh"
 `main.py` writes a single funny line, at most 200 characters, to
 `entry.txt`. The joke is about an everyday household object, a smoke
 detector, with a secret absurd life: it saves its low-battery chirp
-for 3 a.m., as if it rehearsed the moment for weeks. No title, no
+for 3 a.m., as if it spent weeks rehearsing its 3 a.m. solo. No title, no
 setup, no explanation, just the one line.
 
 The program uses only the Python standard library, makes no network

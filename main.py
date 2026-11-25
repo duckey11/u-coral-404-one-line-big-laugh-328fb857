@@ -10,7 +10,7 @@ import os
 
 LINE = (
     "My smoke detector saves its low-battery chirp for 3 a.m., "
-    "which means either it's dying or it rehearsed this moment for weeks."
+    "which means either it's dying or it spent weeks rehearsing its 3 a.m. solo."
 )
 
 
