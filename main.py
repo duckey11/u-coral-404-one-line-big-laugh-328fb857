@@ -1,25 +1,30 @@
 #!/usr/bin/env python3
 """One Line, Big Laugh entry.
 
-Writes a single funny line (at most 200 characters, one line, no title
-or explanation) to entry.txt. Standard library only, no network,
-no secrets, fully deterministic: the same line every run.
+Writes one joke line to /output/entry.txt. The program is fully
+deterministic: it writes the same single line on every run, with no
+network access, no randomness, and no input besides this file.
 """
 
 import os
+from pathlib import Path
 
 LINE = (
-    "My smoke detector saves its low-battery chirp for 3 a.m., "
-    "which means either it's dying or it spent weeks rehearsing its 3 a.m. solo."
+    "My password manager locked me out for suspicious activity. "
+    "The suspect: me, at 2:47 a.m., googling my own birthday "
+    "to answer my own security question."
 )
+
+OUTPUT = Path("/output/entry.txt")
 
 
 def main() -> None:
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
-    os.makedirs(out_dir, exist_ok=True)
-    path = os.path.join(out_dir, "entry.txt")
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(LINE)
+    if not 1 <= len(LINE) <= 200 or not LINE.strip():
+        raise ValueError("entry line must be 1 to 200 characters of text")
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(LINE, encoding="utf-8")
+    os.chmod(OUTPUT, 0o644)
+    print(f"Wrote {len(LINE)} characters to {OUTPUT}")
 
 
 if __name__ == "__main__":
